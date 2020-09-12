@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WorldOfHalalWebUI.Models.Drink>
+
+@{
+    ViewBag.Title = "DrinkList";
+}
+
+<h2>Drink List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddDrink", null, new {@class = "btn btn-warning"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DrinkName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrinkCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificateDrinkUrl)
+        </th>
+        <th>
+            <strong>Controls</strong>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DrinkName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DrinkCompany)
+        </td>
+        <td>
+            <img src="@Url.Content(item.CertificateDrinkUrl)" width="50" height="50" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditDrink", new { id = item.DrinkId }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "DrinkDetail", new { id = item.DrinkId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Delete", "DeleteDrink", new { id = item.DrinkId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

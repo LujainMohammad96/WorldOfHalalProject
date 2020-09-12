@@ -1,0 +1,39 @@
+﻿@model WorldOfHalalWebUI.Models.Drink
+
+@{
+    ViewBag.Title = @Model.DrinkName;
+}
+
+<h2>@Model.DrinkName</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DrinkName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrinkName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrinkCompany)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrinkCompany)
+        </dd>
+
+        <dt>
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.CertificateDrinkUrl)"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "DrinkList", null, new {@class = "btn btn-primary"} )
+</p>

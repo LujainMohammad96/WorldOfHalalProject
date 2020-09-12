@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WorldOfHalalWebUI.Models.Restaurant>
+
+@{
+    ViewBag.Title = "RestaurantList";
+}
+
+<h2>Restaurant List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantLocation)
+        </td>
+        <td>
+            <img src="@Url.Content(item.ImagePath)" width="50" height="50"/>
+        </td>
+        <td>
+            @Html.ActionLink("Details", "RestaurantDetail", new { id=item.RestaurantId }, new {@class = "btn btn-warning"}) 
+        </td>
+    </tr>
+}
+
+</table>

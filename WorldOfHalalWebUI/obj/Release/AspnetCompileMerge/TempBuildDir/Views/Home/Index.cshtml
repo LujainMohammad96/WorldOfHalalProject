@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Wrold Of Halal";
+}
+
+<div class="jumbotron">
+    <h1>World Of Halal Website</h1>
+    <p class="lead">World of Halal is a small web application that shows you Restaurants, Food, Drinks, and Hotels that are Halal in Bahrain.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <p align="center">
+            <img src="~/Images/ImagesForHome/icons8-restaurant-64.png" width="175" height="175" />          
+        </p>
+        <p align="center">
+            @Html.ActionLink("Restaurants", "RestaurantList", "Restaurant", null, new { @class = "btn btn-default btn-lg" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p align="center">
+            <img src="~/Images/ImagesForHome/icons8-home-64.png" width="175" height="175" />          
+        </p>
+        <p align="center">
+            @Html.ActionLink("Hotels", "HotelList", "Hotel", null, new { @class = "btn btn-default btn-lg" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p align="center">
+            <img src="~/Images/ImagesForHome/icons8-salmon-64.png" width="175" height="175" />
+        </p>
+        <p align="center">
+            @Html.ActionLink("Food", "FoodList", "Food", null, new { @class = "btn btn-default btn-lg" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <p align="center">
+            <img src="~/Images/ImagesForHome/icons8-water-glass-64.png" width="175" height="175" />
+        </p>
+        <p align="center">
+            @Html.ActionLink("Drink", "DrinkList", "Drink", null, new { @class = "btn btn-default btn-lg" })
+        </p>
+    </div>
+</div>

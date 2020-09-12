@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WorldOfHalalWebUI.Models.Food>
+
+@{
+    ViewBag.Title = "FoodList";
+}
+
+<h2>Food List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FoodCompany)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificateFoodUrl)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FoodCompany)
+        </td>
+        <td>
+            <img src="@Url.Content(item.CertificateFoodUrl)" width="50" height="50" />
+        </td>
+        <td>
+            @Html.ActionLink("Details", "FoodDetail", new { id=item.FoodId }, new {@class = "btn btn-warning"})
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model WorldOfHalalWebUI.Models.Restaurant
+
+@{
+    ViewBag.Title = @Model.RestaurantName;
+}
+
+<h2>@Model.RestaurantName</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaurantLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaurantLocation)
+        </dd>
+
+        <dt>
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.ImagePath)"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditRestaurant", new { id = Model.RestaurantId }, new {@class = "btn btn-success"}) |
+    @Html.ActionLink("Back to List", "RestaurantList", null, new {@class = "btn btn-primary"})
+</p>

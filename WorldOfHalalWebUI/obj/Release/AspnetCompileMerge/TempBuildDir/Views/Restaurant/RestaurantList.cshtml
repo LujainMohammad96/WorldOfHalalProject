@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WorldOfHalalWebUI.Models.Restaurant>
+
+@{
+    ViewBag.Title = "RestaurantList";
+}
+
+<h2>Restaurant List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddRestaurant", null, new {@class = "btn btn-warning"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestaurantLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            <strong>Controls</strong>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestaurantLocation)
+        </td>
+        <td>
+            <img src="@Url.Content(item.ImagePath)" width="50" height="50"/>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditRestaurant", new { id = item.RestaurantId }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Details", "RestaurantDetail", new { id = item.RestaurantId }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Delete", "DeleteRestaurant", new { id = item.RestaurantId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

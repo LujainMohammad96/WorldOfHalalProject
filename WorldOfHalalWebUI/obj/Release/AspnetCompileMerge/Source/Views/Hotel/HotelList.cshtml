@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WorldOfHalalWebUI.Models.Hotel>
+
+@{
+    ViewBag.Title = "HotelList";
+}
+
+<h2>Hotel List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddHotel", null, new {@class = "btn btn-warning"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelLocation)
+        </th>
+        <th>
+            <strong>Controls</strong>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HotelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HotelLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditHotel", new { id = item.HotelId }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "DeleteHotel", new { id = item.HotelId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
